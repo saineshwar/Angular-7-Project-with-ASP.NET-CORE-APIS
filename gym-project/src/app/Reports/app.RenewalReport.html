@@ -1,0 +1,111 @@
+
+<h4>Renewal Report</h4>
+<hr>
+<link rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css">
+<div class="panel panel-default">
+    <div class="panel-heading">Report</div>
+    <div class="panel-body">
+        <form #f="ngForm" novalidate (ngSubmit)="onSubmit()">
+            <div class="col-md-4">
+                <label for="name">From Date</label>
+                <input required [(ngModel)]="RenewalRequestModel.Paymentfromdate" name="Paymentfromdate" id="Paymentfromdate"
+                    (ngModelChange)="onChangeFromDate($event)" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" class="form-control"
+                    #refPaymentfromdate="bsDatepicker" [minDate]="fromminDate" [maxDate]="frommaxDate" bsDatepicker>
+
+                <div *ngIf="!refPaymentfromdate.valid  && (refPaymentfromdate.dirty || refPaymentfromdate.touched)"
+                    class="alert alert-danger">
+                    <div [hidden]="!refPaymentfromdate.errors.required">
+                        From Date is required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="name">To Date</label>
+                <input required [(ngModel)]="RenewalRequestModel.Paymentfromto" name="Paymentfromto" id="Paymentfromto"
+                    [isDisabled]="showDatepicker" [minDate]="tominDate" [maxDate]="tomaxDate" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
+                    class="form-control" #refPaymentfromto="bsDatepicker" bsDatepicker>
+
+                <div *ngIf="!refPaymentfromto.valid  && (refPaymentfromto.dirty || refPaymentfromto.touched)" class="alert alert-danger">
+                    <div [hidden]="!refPaymentfromto.errors.required">
+                        To Date is required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <button type="submit" style="margin-top: 10px" [disabled]="!f.form.valid" class="btn btn-success">Submit</button>
+                <button [disabled]="exportbutton" style="margin-top: 10px; margin-left: 10px;" mat-raised-button class="btn btn-info" (click)="ExportTOExcel()">Export
+                    as Excel</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+        <hr>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="example-container mat-elevation-z8 " #TABLE>
+                    <table mat-table #table [dataSource]="dataSource">
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="MemberNo">
+                            <th mat-header-cell *matHeaderCellDef> MemberNo </th>
+                            <td mat-cell *matCellDef="let element"> {{element.MemberNo}} </td>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="Name">
+                            <th mat-header-cell *matHeaderCellDef> Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="Contactno">
+                            <th mat-header-cell *matHeaderCellDef> Contactno </th>
+                            <td mat-cell *matCellDef="let element"> {{element.Contactno}} </td>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="EmailID">
+                            <th mat-header-cell *matHeaderCellDef> EmailID </th>
+                            <td mat-cell *matCellDef="let element"> {{element.EmailID}} </td>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="PlanName">
+                            <th mat-header-cell *matHeaderCellDef> PlanName </th>
+                            <td mat-cell *matCellDef="let element"> {{element.PlanName}} </td>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="SchemeName">
+                            <th mat-header-cell *matHeaderCellDef> SchemeName </th>
+                            <td mat-cell *matCellDef="let element"> {{element.SchemeName}} </td>
+                        </ng-container>
+
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="JoiningDate">
+                            <th mat-header-cell *matHeaderCellDef> JoiningDate </th>
+                            <td mat-cell *matCellDef="let element"> {{element.JoiningDate}} </td>
+                        </ng-container>
+
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="RenwalDate">
+                            <th mat-header-cell *matHeaderCellDef> RenwalDate </th>
+                            <td mat-cell *matCellDef="let element"> {{element.RenwalDate}} </td>
+                        </ng-container>
+
+
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="PaymentAmount">
+                            <th mat-header-cell *matHeaderCellDef> PaymentAmount </th>
+                            <td mat-cell *matCellDef="let element"> {{element.PaymentAmount}} </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+ 

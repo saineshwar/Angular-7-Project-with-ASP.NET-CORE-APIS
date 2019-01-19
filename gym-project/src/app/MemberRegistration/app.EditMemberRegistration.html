@@ -1,0 +1,145 @@
+<link rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css">
+<div class="panel panel-default">
+    <div class="panel-heading">Edit Member</div>
+    <div class="panel-body">
+        <form #f="ngForm" novalidate (ngSubmit)="onSubmit()">
+            <div class="col-md-4">
+                <label for="name">First Name</label>
+                <input type="text" class="form-control" name="MemberFName" [(ngModel)]="MemberModel.MemberFName"
+                    maxlength="50" #refMemberFName="ngModel" id="MemberFName" required>
+                <div *ngIf="!refMemberFName.valid  && (refMemberFName.dirty || refMemberFName.touched)" class="alert alert-danger">
+                    <div [hidden]="!refMemberFName.errors.required">
+                        First Name is required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="name">Last Name</label>
+                <input type="text" class="form-control" name="MemberLName" [(ngModel)]="MemberModel.MemberLName"
+                    maxlength="50" #refMemberLName="ngModel" id="MemberLName" required>
+                <div *ngIf="!refMemberLName.valid  && (refMemberLName.dirty || refMemberLName.touched)" class="alert alert-danger">
+                    <div [hidden]="!refMemberLName.errors.required">
+                        Last Name is required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="name">Middle Name</label>
+                <input type="text" class="form-control" name="MemberMName" [(ngModel)]="MemberModel.MemberMName"
+                    maxlength="50" #refMemberMName="ngModel" id="MemberMName" required>
+                <div *ngIf="!refMemberMName.valid  && (refMemberMName.dirty || refMemberMName.touched)" class="alert alert-danger">
+                    <div [hidden]="!refMemberMName.errors.required">
+                        Middle Name is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label for="name">JoiningDate</label>
+                <input [disabled]="true" [(ngModel)]="MemberModel.JoiningDate" name="JoiningDate" id="JoiningDate" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
+                    class="form-control" #refJoiningDate="bsDatepicker" bsDatepicker>
+
+                <div *ngIf="!refJoiningDate.valid  && (refJoiningDate.dirty || refJoiningDate.touched)" class="alert alert-danger">
+                    <div [hidden]="!refJoiningDate.errors.required">
+                        Joining Date is required
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <label for="name">Date of Birth</label>
+                <input [(ngModel)]="MemberModel.Dob" name="Dob" id="Dob" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
+                    (bsValueChange)="CalcuateAge($event)" class="form-control" #refDob="bsDatepicker" bsDatepicker>
+
+                <div *ngIf="!refDob.valid  && (refDob.dirty || refDob.touched)" class="alert alert-danger">
+                    <div [hidden]="!refDob.errors.required">
+                        Date of Birth is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label for="name">Age</label>
+                <input type="text" class="form-control" name="Age" [(ngModel)]="MemberModel.Age" maxlength="50" #refAge="ngModel"
+                    id="Age" required>
+                <div *ngIf="!refAge.valid  && (refAge.dirty || refAge.touched)" class="alert alert-danger">
+                    <div [hidden]="!refAge.errors.required">
+                        Age is required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="name">EmailId</label>
+                <input type="text" class="form-control" name="EmailId" [(ngModel)]="MemberModel.EmailId" maxlength="50"
+                    #refEmailId="ngModel" id="EmailId" required>
+                <div *ngIf="!refEmailId.valid  && (refEmailId.dirty || refEmailId.touched)" class="alert alert-danger">
+                    <div [hidden]="!refEmailId.errors.required">
+                        EmailId is required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="name">Gender</label>
+                <select required name="Gender" #refgender="ngModel" class="form-control" [(ngModel)]="MemberModel.Gender">
+                    <option value=''>Please select Gender</option>
+                    <option *ngFor="let gender of genderList" [ngValue]="gender.id">
+                        {{gender.name}}
+                    </option>
+                </select>
+                <div *ngIf="!refgender.valid  && (refgender.dirty || refgender.touched)" class="alert alert-danger">
+                    <div [hidden]="!refgender.errors.required">
+                        Gender is required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label>Scheme</label>
+                <input [disabled]="true" type="text" class="form-control" name="SchemeName" [(ngModel)]="MemberModel.SchemeName" maxlength="50"
+                id="SchemeName" >
+            </div>
+            <div class="col-md-4">
+                <label>PlanName</label>
+                <input [disabled]="true" type="text" class="form-control" name="PlanName" [(ngModel)]="MemberModel.PlanName" maxlength="50"
+                id="SchemeName" >
+            </div>
+            <div class="col-md-4">
+                <label for="name">Contactno</label>
+                <input type="text" class="form-control" name="Contactno" [(ngModel)]="MemberModel.Contactno" maxlength="10"
+                    #refContactno="ngModel" id="Contactno" required>
+                <div *ngIf="!refContactno.valid  && (refContactno.dirty || refContactno.touched)" class="alert alert-danger">
+                    <div [hidden]="!refContactno.errors.required">
+                        Contactno is required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="name">Address</label>
+                <input type="text" class="form-control" name="Address" [(ngModel)]="MemberModel.Address" maxlength="50"
+                    #refAddress="ngModel" id="Address" required>
+                <div *ngIf="!refAddress.valid  && (refAddress.dirty || refAddress.touched)" class="alert alert-danger">
+                    <div [hidden]="!refAddress.errors.required">
+                        Address is required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="name">Amount</label>
+                <input [disabled]="true" type="text" class="form-control" name="Amount" [(ngModel)]="MemberModel.Amount" maxlength="10"
+                    #refAmount="ngModel" id="Amount" required>
+                <div *ngIf="!refAmount.valid  && (refAmount.dirty || refAmount.touched)" class="alert alert-danger">
+                    <div [hidden]="!refAmount.errors.required">
+                        Amount is required
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col-md-4">
+                <button type="submit" style="margin-top: 10px" [disabled]="!f.form.valid" class="btn btn-success">Submit</button>
+                <a style="margin-left: 10px; margin-top:7px;" class="btn btn-info" [routerLink]="['/Member/All']">
+                    All Member </a>
+            </div>
+            <input type="hidden" name="MemberId" value="{{MemberModel.MemberId}}">
+        </form>
+    </div>
+</div>

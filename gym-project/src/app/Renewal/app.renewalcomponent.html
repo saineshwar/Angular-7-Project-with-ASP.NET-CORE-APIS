@@ -1,0 +1,99 @@
+<link rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css">
+
+<h4>Renewal</h4>
+<hr>
+<div class="panel panel-default">
+  <div class="panel-heading">Renewal Process</div>
+  <div class="panel-body">
+    <form #f="ngForm" novalidate >
+
+      <div class="row">
+        <div class="col-md-6">
+          <label for="name">MemberName</label>
+          <input type="text" class="form-control" id="SearchMemberNo" name="SearchMemberNo" maxlength="30"
+            [(ngModel)]="RenewalModel.SearchMemberNo" matInput (input)="onInputChanged($event.target.value)"
+            [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of ResponseMemberModel" [value]="option.MemberNo">{{ option.MemberName }}</mat-option>
+          </mat-autocomplete>
+        </div>
+        <div class="col-md-6">
+          <button type="submit" (click)="onSubmit('onsearch')" style="margin-top: 24px" class="btn btn-success">Search</button>
+        </div>    
+      </div>
+
+      <div *ngIf="displayflag" class="row">
+        <div class="col-md-4">
+          <label>Scheme</label>
+          <select required name="SchemeID" #refSchemeID="ngModel" (ngModelChange)="OnChange($event)" class="form-control"
+            [(ngModel)]="RenewalModel.SchemeID">
+            <option value=''>Please select Scheme</option>
+            <option *ngFor="let Scheme of AllActiveSchemeList" [value]="Scheme.SchemeID">
+              {{Scheme.SchemeName}}
+            </option>
+          </select>
+          <div *ngIf="!refSchemeID.valid  && (refSchemeID.dirty || refSchemeID.touched)" class="alert alert-danger">
+            <div [hidden]="!refSchemeID.errors.required">
+              Scheme is required
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label>PlanName</label>
+          <select required name="PlanID" #refPlanID="ngModel" class="form-control" (ngModelChange)="GetAmount(refPlanID.value,refSchemeID.value)"
+            [(ngModel)]="RenewalModel.PlanID">
+            <option value=''>Please select Plan</option>
+            <option *ngFor="let plan of AllActivePlanModel" [value]="plan.PlanID">
+              {{plan.PlanName}}
+            </option>
+          </select>
+          <div *ngIf="!refPlanID.valid  && (refPlanID.dirty || refPlanID.touched)" class="alert alert-danger">
+            <div [hidden]="!refPlanID.errors.required">
+              Plan is required
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label for="name">Member Name</label>
+          <input [disabled]="true" type="text" class="form-control" name="MemberName" [(ngModel)]="RenewalModel.MemberName"
+            maxlength="50" #refMemberName="ngModel" id="MemberName" required>
+        </div>
+
+        <div class="col-md-4">
+          <label for="name">MemberNo</label>
+          <input [disabled]="true" type="text" class="form-control" name="MemberNo" [(ngModel)]="RenewalModel.MemberNo"
+            maxlength="50" #refMemberLName="ngModel" id="MemberNo" required>
+        </div>
+
+        <div class="col-md-4">
+          <label for="name">New Date</label>
+          <input [(ngModel)]="RenewalModel.NewDate" name="NewDate" id="NewDate" onkeypress="return false;"  [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
+            class="form-control" #refNewDate="bsDatepicker" bsDatepicker>
+
+          <div *ngIf="!refNewDate.valid  && (refNewDate.dirty || refNewDate.touched)" class="alert alert-danger">
+            <div [hidden]="!refNewDate.errors.required">
+              New Date is required
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label for="name">Renewal Date</label>
+          <input [disabled]="true" type="text" class="form-control" name="NextRenwalDate" [(ngModel)]="RenewalModel.NextRenwalDate"
+            maxlength="50" id="Amount" required>
+        </div>
+
+        <div class="col-md-4">
+          <label for="name">Amount</label>
+          <input [disabled]="true" type="text" class="form-control" name="Amount" [(ngModel)]="RenewalModel.Amount"
+            maxlength="50"  id="Amount" required>
+        </div>
+        <div class="col-md-4">
+            <button type="submit" [disabled]="!f.form.valid" (click)="onSubmit('onrenew')" style="margin-top: 24px" class="btn btn-success">Renew</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

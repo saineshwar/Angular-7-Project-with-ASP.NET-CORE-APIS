@@ -1,0 +1,125 @@
+<h4>Year Wise Collection Report</h4>
+<hr>
+<div class="panel panel-default">
+  <div class="panel-heading">Report</div>
+  <div class="panel-body">
+    <form #f="ngForm" novalidate (ngSubmit)="onSubmit()">
+     
+      <div class="col-md-4">
+        <label>Year</label>
+        <select required name="YearID" #refYearID="ngModel" class="form-control" [(ngModel)]="YearwiseRequestModel.YearID">
+          <option value=''>Please select Year</option>
+          <option *ngFor="let year of YearList" [ngValue]="year.YearID">
+            {{year.YearName}}
+          </option>
+        </select>
+        <div *ngIf="!refYearID.valid  && (refYearID.dirty || refYearID.touched)" class="alert alert-danger">
+          <div [hidden]="!refYearID.errors.required">
+            Year is required
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        
+        <button type="submit" style="margin-top: 20px" [disabled]="!f.form.valid" class="btn btn-success">Submit</button>
+        <button style="margin-top: 20px; margin-left: 10px;" [disabled]="exportbutton" mat-raised-button class="btn btn-info" (click)="ExportTOExcel()">Export as Excel</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading"></div>
+  <div class="panel-body">
+    <div class="col-md-12">
+      <div class="example-container mat-elevation-z8 " #TABLE>
+        <table mat-table #table [dataSource]="dataSource">
+
+          <!--- Note that these columns can be defined in any order.
+                          The actual rendered columns are set as a property on the row definition" -->
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="CurrentYear">
+            <th mat-header-cell *matHeaderCellDef> CurrentYear </th>
+            <td mat-cell *matCellDef="let element"> {{element.CurrentYear}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="April">
+            <th mat-header-cell *matHeaderCellDef> April </th>
+            <td mat-cell *matCellDef="let element"> {{element.April}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="May">
+            <th mat-header-cell *matHeaderCellDef> May </th>
+            <td mat-cell *matCellDef="let element"> {{element.May}} </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="June">
+            <th mat-header-cell *matHeaderCellDef> June </th>
+            <td mat-cell *matCellDef="let element"> {{element.June}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="July">
+            <th mat-header-cell *matHeaderCellDef> July </th>
+            <td mat-cell *matCellDef="let element"> {{element.July}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="August">
+            <th mat-header-cell *matHeaderCellDef> August </th>
+            <td mat-cell *matCellDef="let element"> {{element.August}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="Sept">
+            <th mat-header-cell *matHeaderCellDef> Sept </th>
+            <td mat-cell *matCellDef="let element"> {{element.Sept}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="Oct">
+            <th mat-header-cell *matHeaderCellDef> Oct </th>
+            <td mat-cell *matCellDef="let element"> {{element.Oct}} </td>
+          </ng-container>
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="Nov">
+            <th mat-header-cell *matHeaderCellDef> Nov </th>
+            <td mat-cell *matCellDef="let element"> {{element.Nov}} </td>
+          </ng-container>
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="Decm">
+            <th mat-header-cell *matHeaderCellDef> Decm </th>
+            <td mat-cell *matCellDef="let element"> {{element.Decm}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Jan">
+            <th mat-header-cell *matHeaderCellDef> Jan </th>
+            <td mat-cell *matCellDef="let element"> {{element.Jan}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Feb">
+            <th mat-header-cell *matHeaderCellDef> Feb </th>
+            <td mat-cell *matCellDef="let element"> {{element.Feb}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="March">
+            <th mat-header-cell *matHeaderCellDef> March </th>
+            <td mat-cell *matCellDef="let element"> {{element.March}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Total">
+            <th mat-header-cell *matHeaderCellDef> Total </th>
+            <td mat-cell *matCellDef="let element"> {{element.Total}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </div>
+  </div>

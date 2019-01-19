@@ -1,0 +1,82 @@
+<h4>Edit Plan</h4>
+<hr>
+<div class="panel panel-default">
+    <div class="panel-heading">Edit Plan</div>
+    <div class="panel-body">
+        <form #f="ngForm" novalidate (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="name">PlanName</label>
+                    <input type="text" class="form-control" [disabled]="true" name="PlanName" [(ngModel)]="planModel.PlanName" maxlength="50"
+                        #refPlanName="ngModel" id="PlanName" required>
+                    <div *ngIf="!refPlanName.valid  && (refPlanName.dirty || refPlanName.touched)" class="alert alert-danger">
+                        <div [hidden]="!refPlanName.errors.required">
+                            PlanName is required
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="name">Period </label>
+                    <select required name="PeriodID" [disabled]="true" #refPeriodID="ngModel" class="form-control" [(ngModel)]="planModel.PeriodID">
+                        <option value=''>Please select Value</option>
+                        <option *ngFor="let period of PeriodList" [ngValue]="period.PeriodID">
+                            {{period.Text}}
+                        </option>
+                    </select>
+                    <div *ngIf="!refPeriodID.valid  && (refPeriodID.dirty || refPeriodID.touched)" class="alert alert-danger">
+                        <div [hidden]="!refPeriodID.errors.required">
+                            Period is required
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="name">Scheme</label>
+                    <select required name="SchemeID" [disabled]="true" #refSchemeID="ngModel" class="form-control" [(ngModel)]="planModel.SchemeID">
+                        <option value=''>Please select Value</option>
+                        <option *ngFor="let activescheme of AllActiveSchemeList" [ngValue]="activescheme.SchemeID">
+                            {{activescheme.SchemeName}}
+                        </option>
+                    </select>
+                    <div *ngIf="!refSchemeID.valid  && (refSchemeID.dirty || refSchemeID.touched)" class="alert alert-danger">
+                        <div [hidden]="!refSchemeID.errors.required">
+                            Scheme is required
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="name">PlanAmount</label>
+                    <input type="text" class="form-control" (keypress)="numberOnly($event)" name="PlanAmount" [(ngModel)]="planModel.PlanAmount" maxlength="50"
+                        #refPlanAmount="ngModel" id="PlanAmount" required>
+                    <div *ngIf="!refPlanAmount.valid  && (refPlanAmount.dirty || refPlanAmount.touched)" class="alert alert-danger">
+                        <div [hidden]="!refPlanAmount.errors.required">
+                            PlanAmount is required
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="name">ServiceTax</label>
+                    <input type="text" class="form-control" name="ServiceTax" (keypress)="numberOnly($event)" [(ngModel)]="planModel.ServiceTax" maxlength="50"
+                        #refServiceTax="ngModel" id="ServiceTax" required>
+                    <div *ngIf="!refServiceTax.valid  && (refServiceTax.dirty || refServiceTax.touched)" class="alert alert-danger">
+                        <div [hidden]="!refServiceTax.errors.required">
+                            ServiceTax is required
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <button type="submit" style="margin-top: 10px" [disabled]="!f.form.valid" class="btn btn-success">Submit</button>
+                    <a style="margin-left: 10px; margin-top:7px;" class="btn btn-info" [routerLink]="['/Plan/All']">
+                        All Plans </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

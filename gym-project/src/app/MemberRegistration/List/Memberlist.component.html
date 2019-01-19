@@ -1,0 +1,72 @@
+<h4>All Members</h4>
+<hr>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="example-header">
+            <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+        </div>
+
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+                <!-- SchemeID Column -->
+                <ng-container matColumnDef="MemberId">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> MemberId </th>
+                    <td mat-cell *matCellDef="let element"> {{element.MemberId}} </td>
+                </ng-container>
+                <ng-container matColumnDef="MemberNo">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> MemberNo </th>
+                    <td mat-cell *matCellDef="let element"> {{element.MemberNo}} </td>
+                </ng-container>
+                <!-- SchemeName Column -->
+                <ng-container matColumnDef="MemberName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> MemberName </th>
+                    <td mat-cell *matCellDef="let element"> {{element.MemberName}} </td>
+                </ng-container>
+                <!-- Status Column -->
+                <ng-container matColumnDef="Contactno">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Contactno </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Contactno}} </td>
+                </ng-container>
+                <!-- Createddate Column -->
+                <ng-container matColumnDef="PlanName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> PlanName </th>
+                    <td mat-cell *matCellDef="let element"> {{element.PlanName}} </td>
+                </ng-container>
+                <!-- Createddate Column -->
+                <ng-container matColumnDef="SchemeName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> SchemeName </th>
+                    <td mat-cell *matCellDef="let element"> {{element.SchemeName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="JoiningDate">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> JoiningDate </th>
+                    <td mat-cell *matCellDef="let element"> {{element.JoiningDate | date:'yyyy-MM-dd'}} </td>
+                </ng-container>
+                <!-- EditAction Column -->
+                <ng-container matColumnDef="EditAction">
+                    <th mat-header-cell *matHeaderCellDef> EditAction </th>
+                    <td mat-cell *matCellDef="let element"> <a class="btn btn-info" [routerLink]="['/Member/Edit/',element.MemberId]"><i
+                                class="fa fa-edit fa-fw"></i>
+                            Edit</a> </td>
+                </ng-container>
+                <!-- DeleteAction Column -->
+                <ng-container matColumnDef="DeleteAction">
+                    <th mat-header-cell *matHeaderCellDef> DeleteAction </th>
+                    <td mat-cell *matCellDef="let element" (click)="$event.stopPropagation()">
+                        <button mat-button (click)="Delete(element.MemberId)"  class="btn btn-danger">Delete</button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator [length]="totalCount" [pageSize]="paginationService.pageSize" [pageSizeOptions]="paginationService.selectItemsPerPage"
+                (page)="onPageSwitch.emit($event)">
+            </mat-paginator>
+
+        </div>
+    </div>
+</div>

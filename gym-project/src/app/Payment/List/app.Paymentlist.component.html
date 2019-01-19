@@ -1,0 +1,71 @@
+<h4>All Payments</h4>
+<hr>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="example-header">
+            <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+        </div>
+
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="paydataSource" matSort class="mat-elevation-z8">
+                <!-- SchemeID Column -->
+                <ng-container matColumnDef="PaymentID">
+                    <th  mat-header-cell *matHeaderCellDef > Srno. </th>
+                    <td mat-cell *matCellDef="let element"> {{element.PaymentID}} </td>
+                </ng-container>
+                <ng-container matColumnDef="MemberNo" sticky>
+                    <th mat-header-cell *matHeaderCellDef > MemberNo </th>
+                    <td mat-cell *matCellDef="let element"> {{element.MemberNo}} </td>
+                </ng-container>
+                <!-- SchemeName Column -->
+                <ng-container matColumnDef="MemberName">
+                    <th mat-header-cell *matHeaderCellDef > MemberName </th>
+                    <td mat-cell *matCellDef="let element"> {{element.MemberName}} </td>
+                </ng-container>
+                <!-- Createddate Column -->
+                <ng-container matColumnDef="PlanName">
+                    <th mat-header-cell *matHeaderCellDef > PlanName </th>
+                    <td mat-cell *matCellDef="let element"> {{element.PlanName}} </td>
+                </ng-container>
+                <!-- Createddate Column -->
+                <ng-container matColumnDef="SchemeName">
+                    <th mat-header-cell *matHeaderCellDef > SchemeName </th>
+                    <td mat-cell *matCellDef="let element"> {{element.SchemeName}} </td>
+                </ng-container>
+                <ng-container matColumnDef="PaymentAmount">
+                    <th mat-header-cell *matHeaderCellDef > PaymentAmount </th>
+                    <td mat-cell *matCellDef="let element"> {{element.PaymentAmount}} </td>
+                </ng-container>
+                <ng-container matColumnDef="NextRenwalDate">
+                    <th mat-header-cell *matHeaderCellDef > NextRenwalDate </th>
+                    <td mat-cell *matCellDef="let element"> {{element.NextRenwalDate | date:'yyyy-MM-dd'}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="PaymentFromdt">
+                    <th mat-header-cell *matHeaderCellDef > PaymentFromdt </th>
+                    <td mat-cell *matCellDef="let element"> {{element.PaymentFromdt | date:'yyyy-MM-dd'}} </td>
+                </ng-container>
+                <ng-container matColumnDef="PaymentTodt">
+                    <th mat-header-cell *matHeaderCellDef > PaymentTodt </th>
+                    <td mat-cell *matCellDef="let element"> {{element.PaymentTodt | date:'yyyy-MM-dd'}} </td>
+                </ng-container>
+                <ng-container matColumnDef="PrintAction">
+                    <th mat-header-cell *matHeaderCellDef> PrintAction </th>
+                    <td mat-cell *matCellDef="let element"> <a class="btn btn-info" [routerLink]="['/User/Recepit/',element.PaymentID]"><i
+                                class="fa fa-edit fa-fw"></i>
+                                Recepit</a> </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator [length]="paytotalCount" [pageSize]="paginationService.pageSize" [pageSizeOptions]="paginationService.selectItemsPerPage"
+                (page)="payonPageSwitch.emit($event)">
+            </mat-paginator>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<h4>Add Scheme</h4>
+<hr>
+<div class="panel panel-default">
+    <div class="panel-heading">Add Scheme</div>
+    <div class="panel-body">
+        <form #f="ngForm" novalidate (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="name">SchemeName</label>
+                    <input type="text" class="form-control" name="SchemeName" [(ngModel)]="SchemeForms.SchemeName"
+                        maxlength="50" #refSchemeName="ngModel" id="SchemeName" required>
+                    <div *ngIf="!refSchemeName.valid  && (refSchemeName.dirty || refSchemeName.touched)" class="alert alert-danger">
+                        <div [hidden]="!refSchemeName.errors.required">
+                            SchemeName is required
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="name">Status</label>
+                    <br>
+                    <input style="margin-top: 10px" type="checkbox" name="Status" [(ngModel)]="SchemeForms.Status"
+                        maxlength="50" #refStatus="ngModel" id="SchemeName">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <button type="submit" style="margin-top: 10px" [disabled]="!f.form.valid" class="btn btn-success">Submit</button>
+                    <a style="margin-left: 10px; margin-top:7px;" class="btn btn-info" [routerLink]="['/Scheme/All']">
+                        All Scheme </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

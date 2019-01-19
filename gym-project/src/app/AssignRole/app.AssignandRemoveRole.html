@@ -1,0 +1,46 @@
+<h4>Assign / Remove Role</h4>
+<hr>
+<div class="panel panel-default">
+    <div class="panel-heading">Assign / Remove Role</div>
+    <div class="panel-body">
+        <form #f="ngForm" (ngSubmit)="onSubmit(buttonType)" novalidate>
+            <div class="col-md-6">
+                <label>User</label>
+                <select required name="UserId" #refUserId="ngModel"  class="form-control"
+                    [(ngModel)]="AssignRemoveModel.UserId">
+                    <option value=''>Please select User</option>
+                    <option *ngFor="let user of UserList" [ngValue]="user.UserId">
+                        {{user.UserName}}
+                    </option>
+                </select>
+                <div *ngIf="!refUserId.valid  && (refUserId.dirty || refUserId.touched)" class="alert alert-danger">
+                    <div [hidden]="!refUserId.errors.required">
+                        Users is required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label>Role</label>
+                <select required name="RoleId" #refRoleId="ngModel" class="form-control" 
+                    [(ngModel)]="AssignRemoveModel.RoleId">
+                    <option value=''>Please select Role</option>
+                    <option *ngFor="let role of RoleList" [ngValue]="role.RoleId">
+                        {{role.RoleName}}
+                    </option>
+                </select>
+                <div *ngIf="!refRoleId.valid  && (refRoleId.dirty || refRoleId.touched)" class="alert alert-danger">
+                    <div [hidden]="!refRoleId.errors.required">
+                        Role is required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <button type="submit" (click)="onSubmit('onAssign')" style="margin-top: 10px" [disabled]="!f.form.valid" class="btn btn-success">Assign Role</button>
+                <button type="submit" (click)="onSubmit('onRemove')"  style="margin-left: 10px; margin-top: 10px" [disabled]="!f.form.valid" class="btn btn-success">Remove Role</button>
+                <a style="margin-left: 10px; margin-top:7px;" class="btn btn-info" [routerLink]="['/Assign/AllRole']">
+                    All Assign Role </a>
+            </div>
+            
+        </form>
+    </div>
+</div>

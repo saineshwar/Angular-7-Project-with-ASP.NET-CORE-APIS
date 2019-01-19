@@ -1,0 +1,50 @@
+<h4>All Role</h4>
+<hr>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="example-header">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+    </div>
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+        <ng-container matColumnDef="RoleId">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> RoleId </th>
+          <td mat-cell *matCellDef="let element"> {{element.RoleId}} </td>
+        </ng-container>
+        <!-- SchemeID Column -->
+        <ng-container matColumnDef="RoleName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> RoleName </th>
+          <td mat-cell *matCellDef="let element"> {{element.RoleName}} </td>
+        </ng-container>
+        <!-- SchemeName Column -->
+        <ng-container matColumnDef="Status">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+          <td mat-cell *matCellDef="let element"> {{element.Status== true ? "Active": "DeActive"}} </td>
+        </ng-container>
+        <!-- EditAction Column -->
+        <ng-container matColumnDef="EditAction">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element"> <a class="btn btn-info" [routerLink]="['/Role/Edit/',element.RoleId]"><i
+                class="fa fa-edit fa-fw"></i>
+              Edit</a> </td>
+        </ng-container>
+        <!-- DeleteAction Column -->
+        <ng-container matColumnDef="DeleteAction">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element">
+            <button class="btn btn-info" (click)="Delete(element.RoleId)">Delete</button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+</div>

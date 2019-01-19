@@ -1,0 +1,63 @@
+<h4>All System Users</h4>
+<hr>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="example-header">
+            <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+        </div>
+
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+                <!-- SchemeID Column -->
+                <ng-container matColumnDef="Id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> UserId </th>
+                    <td mat-cell *matCellDef="let element"> {{element.UserId}} </td>
+                </ng-container>
+                <!-- SchemeName Column -->
+                <ng-container matColumnDef="UserName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> UserName </th>
+                    <td mat-cell *matCellDef="let element"> {{element.UserName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="FullName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> FullName </th>
+                    <td mat-cell *matCellDef="let element"> {{element.FullName}} </td>
+                </ng-container>
+                <ng-container matColumnDef="EmailId">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> EmailId </th>
+                    <td mat-cell *matCellDef="let element"> {{element.EmailId}} </td>
+                </ng-container>
+                <ng-container matColumnDef="Contactno">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Contactno </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Contactno}} </td>
+                </ng-container>
+                <!-- Status Column -->
+                <ng-container matColumnDef="Status">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Status== true ? "Active": "DeActive"}}  </td>
+                </ng-container>
+            
+                <ng-container matColumnDef="EditAction">
+                    <th mat-header-cell *matHeaderCellDef> Action </th>
+                    <td mat-cell *matCellDef="let element"> <a class="btn btn-info" [routerLink]="['/User/Edit/',element.UserId]"><i
+                                class="fa fa-edit fa-fw"></i>
+                            Edit</a> </td>
+                </ng-container>
+                <!-- DeleteAction Column -->
+                <ng-container matColumnDef="DeleteAction">
+                    <th mat-header-cell *matHeaderCellDef> Action </th>
+                    <td mat-cell *matCellDef="let element">
+                        <button class="btn btn-info" (click)="Delete(element.UserId)">Delete</button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+</div>

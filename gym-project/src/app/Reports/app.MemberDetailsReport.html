@@ -1,0 +1,70 @@
+<h4>All Member Report</h4>
+<hr>
+<div class="panel panel-default">
+  <div class="panel-heading">Report</div>
+  <div class="panel-body">
+
+    <button mat-raised-button class="btn btn-info" (click)="ExportTOExcel()">Export as Excel</button>
+
+    <hr>
+
+    <div class="example-container mat-elevation-z8 " #TABLE>
+      <table mat-table #table [dataSource]="dataSource">
+
+        <ng-container matColumnDef="MemberNo">
+          <th mat-header-cell *matHeaderCellDef> MemberNo </th>
+          <td mat-cell *matCellDef="let element"> {{element.MemberNo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+        </ng-container>
+  
+        <!-- Weight Column -->
+        <ng-container matColumnDef="Contactno">
+          <th mat-header-cell *matHeaderCellDef> Contactno </th>
+          <td mat-cell *matCellDef="let element"> {{element.Contactno}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="EmailID">
+          <th mat-header-cell *matHeaderCellDef> EmailID </th>
+          <td mat-cell *matCellDef="let element"> {{element.EmailID}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="PlanName">
+          <th mat-header-cell *matHeaderCellDef> PlanName </th>
+          <td mat-cell *matCellDef="let element"> {{element.PlanName}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="SchemeName">
+          <th mat-header-cell *matHeaderCellDef> SchemeName </th>
+          <td mat-cell *matCellDef="let element"> {{element.SchemeName}} </td>
+        </ng-container>
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="JoiningDate">
+          <th mat-header-cell *matHeaderCellDef> JoiningDate </th>
+          <td mat-cell *matCellDef="let element"> {{element.JoiningDate}} </td>
+        </ng-container>
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="RenwalDate">
+          <th mat-header-cell *matHeaderCellDef> RenwalDate </th>
+          <td mat-cell *matCellDef="let element"> {{element.RenwalDate}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="PaymentAmount">
+          <th mat-header-cell *matHeaderCellDef> PaymentAmount </th>
+          <td mat-cell *matCellDef="let element"> {{element.PaymentAmount}} </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+
+  </div>
+</div>

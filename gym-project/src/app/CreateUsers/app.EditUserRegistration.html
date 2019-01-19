@@ -1,0 +1,81 @@
+<h4>Add System User</h4>
+<hr>
+<div class="panel panel-default">
+    <div class="panel-heading">Add User</div>
+    <div class="panel-body">
+        <form #f="ngForm" novalidate (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="name">UserName</label>
+                    <input type="text" class="form-control" name="UserName" [disabled]="true" [(ngModel)]="UserModel.UserName" maxlength="50"
+                        #refUserName="ngModel" id="UserName" required>
+                    <div *ngIf="!refUserName.valid  && (refUserName.dirty || refUserName.touched)" class="alert alert-danger">
+                        <div [hidden]="!refUserName.errors.required">
+                            UserName is required
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="name">FullName</label>
+                    <input type="text" class="form-control" name="FullName" maxlength="50" [(ngModel)]="UserModel.FullName" maxlength="50"
+                        #refFullName="ngModel" id="FullName" required>
+                    <div *ngIf="!refFullName.valid  && (refFullName.dirty || refFullName.touched)" class="alert alert-danger">
+                        <div [hidden]="!refFullName.errors.required">
+                            FullName is required
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="name">EmailId</label>
+                    <input type="text" class="form-control" maxlength="50" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" name="EmailId" [(ngModel)]="UserModel.EmailId" maxlength="50"
+                        #refEmailId="ngModel" id="EmailId" required>
+                    <div *ngIf="!refEmailId.valid  && (refEmailId.dirty || refEmailId.touched)" class="alert alert-danger">
+                        <div [hidden]="!refEmailId.errors.required">
+                            EmailId is required
+                        </div>
+                        <div  *ngIf="refEmailId.errors && refEmailId.errors.pattern">
+                            EmailId is invalid
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="name">Contactno</label>
+                    <input type="text" class="form-control" name="Contactno" [(ngModel)]="UserModel.Contactno"
+                        maxlength="50" #refContactno="ngModel" id="Contactno" required>
+                    <div *ngIf="!refContactno.valid  && (refContactno.dirty || refContactno.touched)" class="alert alert-danger">
+                        <div [hidden]="!refContactno.errors.required">
+                            Contactno is required
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="name">Password</label>
+                    <input type="password" class="form-control" name="Password" [(ngModel)]="UserModel.Password"
+                        maxlength="50" #refPassword="ngModel" id="Password" required>
+                    <div *ngIf="!refPassword.valid  && (refPassword.dirty || refPassword.touched)" class="alert alert-danger">
+                        <div [hidden]="!refPassword.errors.required">
+                            Password is required
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="name">Status</label>
+                    <input type="checkbox" name="Status" [(ngModel)]="UserModel.Status" maxlength="50" #refStatus="ngModel"
+                        id="Status" required>
+                    <div *ngIf="!refStatus.valid  && (refStatus.dirty || refStatus.touched)" class="alert alert-danger">
+                        <div [hidden]="!refStatus.errors.required">
+                            Status is required
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" style="margin-top: 10px" [disabled]="!f.form.valid" class="btn btn-success">Submit</button>
+                    <a style="margin-left: 10px; margin-top:7px;" class="btn btn-info" [routerLink]="['/User/All']">
+                        All Users </a>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+</div>

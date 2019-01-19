@@ -1,0 +1,60 @@
+<h4>All Plan</h4>
+<hr>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="example-header">
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+        </div>
+
+        <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+            <ng-container matColumnDef="PlanID">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> PlanID </th>
+              <td mat-cell *matCellDef="let element"> {{element.PlanID}} </td>
+            </ng-container>
+            <ng-container matColumnDef="PlanName">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> PlanName </th>
+              <td mat-cell *matCellDef="let element"> {{element.PlanName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="SchemeName">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> SchemeName </th>
+              <td mat-cell *matCellDef="let element"> {{element.SchemeName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="Text">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Period </th>
+              <td mat-cell *matCellDef="let element"> {{element.Text}} </td>
+            </ng-container>
+            <ng-container matColumnDef="TotalAmount">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> TotalAmount </th>
+              <td mat-cell *matCellDef="let element"> {{element.TotalAmount}} </td>
+            </ng-container>
+            <ng-container matColumnDef="RecStatus">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+              <td mat-cell *matCellDef="let element"> {{element.RecStatus== True ? "Active": "DeActive"}} </td>
+            </ng-container>
+
+            <!-- EditAction Column -->
+            <ng-container matColumnDef="EditAction">
+              <th mat-header-cell *matHeaderCellDef> Action </th>
+              <td mat-cell *matCellDef="let element"> <a class="btn btn-info" [routerLink]="['/Plan/Edit/',element.PlanID]"><i
+                    class="fa fa-edit fa-fw"></i>
+                  Edit</a> </td>
+            </ng-container>
+            <!-- DeleteAction Column -->
+            <ng-container matColumnDef="DeleteAction">
+              <th mat-header-cell *matHeaderCellDef> Action </th>
+              <td mat-cell *matCellDef="let element">
+                <button class="btn btn-info" (click)="Delete(element.PlanID)">Delete</button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+      </div>
+    </div>
+ 

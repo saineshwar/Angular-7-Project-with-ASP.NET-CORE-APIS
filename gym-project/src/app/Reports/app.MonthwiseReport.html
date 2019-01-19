@@ -1,0 +1,96 @@
+<h4>Month Wise Collection Report</h4>
+<hr>
+<div class="panel panel-default">
+  <div class="panel-heading">Report</div>
+  <div class="panel-body">
+    <form #f="ngForm" novalidate (ngSubmit)="onSubmit()">
+
+      <div class="col-md-4">
+        <label>Month</label>
+        <select required name="MonthID" #refmonth="ngModel" class="form-control" [(ngModel)]="MonthWiseRequestModel.MonthId">
+          <option value=''>Please select Month</option>
+          <option *ngFor="let month of MonthList" [ngValue]="month.MonthID">
+            {{month.MonthName}}
+          </option>
+        </select>
+        <div *ngIf="!refmonth.valid  && (refmonth.dirty || refmonth.touched)" class="alert alert-danger">
+          <div [hidden]="!refmonth.errors.required">
+            Month is required
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <button type="submit" style="margin-top: 20px" [disabled]="!f.form.valid" class="btn btn-success">Submit</button>
+        <button style="margin-top: 20px; margin-left: 10px;" [disabled]="exportbutton" mat-raised-button class="btn btn-info" (click)="ExportTOExcel()">Export
+          as Excel</button>
+      </div>
+      <hr>
+    </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading"></div>
+  <div class="panel-body">
+    <div class="col-md-12">
+      <div class="example-container mat-elevation-z8 " #TABLE>
+        <table mat-table #table [dataSource]="dataSource">
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="MemberNo">
+            <th mat-header-cell *matHeaderCellDef> MemberNo </th>
+            <td mat-cell *matCellDef="let element"> {{element.MemberNo}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="MemberFName">
+            <th mat-header-cell *matHeaderCellDef> FirstName </th>
+            <td mat-cell *matCellDef="let element"> {{element.MemberFName}} </td>
+          </ng-container>
+          <!-- Name Column -->
+          <ng-container matColumnDef="MemberMName">
+            <th mat-header-cell *matHeaderCellDef> MiddleName </th>
+            <td mat-cell *matCellDef="let element"> {{element.MemberMName}} </td>
+          </ng-container>
+          <!-- Name Column -->
+          <ng-container matColumnDef="MemberLName">
+            <th mat-header-cell *matHeaderCellDef> LastName </th>
+            <td mat-cell *matCellDef="let element"> {{element.MemberLName}} </td>
+          </ng-container>
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="Username">
+            <th mat-header-cell *matHeaderCellDef> Username </th>
+            <td mat-cell *matCellDef="let element"> {{element.Username}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="Total">
+            <th mat-header-cell *matHeaderCellDef> Total </th>
+            <td mat-cell *matCellDef="let element"> {{element.Total}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="Paymentmonth">
+            <th mat-header-cell *matHeaderCellDef> Paymentmonth </th>
+            <td mat-cell *matCellDef="let element"> {{element.Paymentmonth}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="PaymentAmount">
+            <th mat-header-cell *matHeaderCellDef> PaymentAmount </th>
+            <td mat-cell *matCellDef="let element"> {{element.PaymentAmount}} </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="CreateDate">
+            <th mat-header-cell *matHeaderCellDef> CreateDate </th>
+            <td mat-cell *matCellDef="let element"> {{element.CreateDate}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
