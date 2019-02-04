@@ -46,3 +46,7 @@ Link to download Visual studio code: - https://code.visualstudio.com/download
 1. @angular/material
 2. @ngx-bootstrap/datepicker
 
+### Process to Start Angular Project
+1. After downloading Use Command <strong> npm install </strong> to download packages.
+2. To Run <strong> ng serve </strong>
+
