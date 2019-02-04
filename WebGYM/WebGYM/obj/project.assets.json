@@ -6947,10 +6947,11 @@
       ]
     },
     "Microsoft.NETCore.App/2.1.0": {
-      "sha512": "AvT774nTFgU8cYcGO9j1EMwuayKslxqYTurg32HGpWa2hEYNuW2+XgYVVNcZe6Ndbr84QX6fwaOZfd5n+1m2OA==",
+      "sha512": "2DtRTpAhUdaPDnBM1R4Tbl1hxLW+3L4/byMonI+7aAQPFRmVeKc1epmM4wpxA4h1E7uK6tSPOBOU7f+MDcY5Bg==",
       "type": "package",
       "path": "microsoft.netcore.app/2.1.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "Microsoft.NETCore.App.versions.txt",
@@ -7268,10 +7269,11 @@
       ]
     },
     "Microsoft.NETCore.Targets/2.1.0": {
-      "sha512": "etaYwrLZQUS+b3UWTpCnUggd6SQ/ZIkZ5pHnoR7+dIWt/wp2Rv3CvMKOZISsrt7FYCHKwCxfcepuuyEWkQxADg==",
+      "sha512": "I2NAAePyfAzSLl/AWmgNs493xJQDDql2Ldpx3PRl7fE+FrsgdGmVHyyWlfd3doMkxHPstOkqYVGvSLbIBhyzsg==",
       "type": "package",
       "path": "microsoft.netcore.targets/2.1.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -12743,11 +12745,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\source\\repos\\WebGYM\\WebGYM\\WebGYM.csproj",
+      "projectUniqueName": "D:\\Git\\Angular-Demo-Project\\Angular-7-Project-with-ASP.NET-CORE-APIS-\\WebGYM\\WebGYM\\WebGYM.csproj",
       "projectName": "WebGYM",
-      "projectPath": "C:\\Users\\user\\source\\repos\\WebGYM\\WebGYM\\WebGYM.csproj",
+      "projectPath": "D:\\Git\\Angular-Demo-Project\\Angular-7-Project-with-ASP.NET-CORE-APIS-\\WebGYM\\WebGYM\\WebGYM.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\source\\repos\\WebGYM\\WebGYM\\obj\\",
+      "outputPath": "D:\\Git\\Angular-Demo-Project\\Angular-7-Project-with-ASP.NET-CORE-APIS-\\WebGYM\\WebGYM\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12766,17 +12768,17 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\user\\source\\repos\\WebGYM\\WebGYM.Concrete\\WebGYM.Concrete.csproj": {
-              "projectPath": "C:\\Users\\user\\source\\repos\\WebGYM\\WebGYM.Concrete\\WebGYM.Concrete.csproj"
+            "D:\\Git\\Angular-Demo-Project\\Angular-7-Project-with-ASP.NET-CORE-APIS-\\WebGYM\\WebGYM.Concrete\\WebGYM.Concrete.csproj": {
+              "projectPath": "D:\\Git\\Angular-Demo-Project\\Angular-7-Project-with-ASP.NET-CORE-APIS-\\WebGYM\\WebGYM.Concrete\\WebGYM.Concrete.csproj"
             },
-            "C:\\Users\\user\\source\\repos\\WebGYM\\WebGYM.Interface\\WebGYM.Interface.csproj": {
-              "projectPath": "C:\\Users\\user\\source\\repos\\WebGYM\\WebGYM.Interface\\WebGYM.Interface.csproj"
+            "D:\\Git\\Angular-Demo-Project\\Angular-7-Project-with-ASP.NET-CORE-APIS-\\WebGYM\\WebGYM.Interface\\WebGYM.Interface.csproj": {
+              "projectPath": "D:\\Git\\Angular-Demo-Project\\Angular-7-Project-with-ASP.NET-CORE-APIS-\\WebGYM\\WebGYM.Interface\\WebGYM.Interface.csproj"
             },
-            "C:\\Users\\user\\source\\repos\\WebGYM\\WebGYM.Models\\WebGYM.Models.csproj": {
-              "projectPath": "C:\\Users\\user\\source\\repos\\WebGYM\\WebGYM.Models\\WebGYM.Models.csproj"
+            "D:\\Git\\Angular-Demo-Project\\Angular-7-Project-with-ASP.NET-CORE-APIS-\\WebGYM\\WebGYM.Models\\WebGYM.Models.csproj": {
+              "projectPath": "D:\\Git\\Angular-Demo-Project\\Angular-7-Project-with-ASP.NET-CORE-APIS-\\WebGYM\\WebGYM.Models\\WebGYM.Models.csproj"
             },
-            "C:\\Users\\user\\source\\repos\\WebGYM\\WebGYM.ViewModels\\WebGYM.ViewModels.csproj": {
-              "projectPath": "C:\\Users\\user\\source\\repos\\WebGYM\\WebGYM.ViewModels\\WebGYM.ViewModels.csproj"
+            "D:\\Git\\Angular-Demo-Project\\Angular-7-Project-with-ASP.NET-CORE-APIS-\\WebGYM\\WebGYM.ViewModels\\WebGYM.ViewModels.csproj": {
+              "projectPath": "D:\\Git\\Angular-Demo-Project\\Angular-7-Project-with-ASP.NET-CORE-APIS-\\WebGYM\\WebGYM.ViewModels\\WebGYM.ViewModels.csproj"
             }
           }
         }

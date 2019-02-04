@@ -12,3 +12,14 @@ C:\Users\user\source\repos\WebGYM\WebGYM.Interface\obj\Debug\WebGYM.Interface.dl
 C:\Users\user\source\repos\WebGYM\WebGYM.Interface\obj\Debug\WebGYM.Interface.pdb
 C:\Users\user\source\repos\WebGYM\WebGYM.Interface\bin\Debug\WebGYM.ViewModels.dll
 C:\Users\user\source\repos\WebGYM\WebGYM.Interface\bin\Debug\WebGYM.ViewModels.pdb
+D:\Git\Angular-Demo-Project\Angular-7-Project-with-ASP.NET-CORE-APIS-\WebGYM\WebGYM.Interface\bin\Debug\WebGYM.Interface.dll
+D:\Git\Angular-Demo-Project\Angular-7-Project-with-ASP.NET-CORE-APIS-\WebGYM\WebGYM.Interface\bin\Debug\WebGYM.Interface.pdb
+D:\Git\Angular-Demo-Project\Angular-7-Project-with-ASP.NET-CORE-APIS-\WebGYM\WebGYM.Interface\bin\Debug\WebGYM.Models.dll
+D:\Git\Angular-Demo-Project\Angular-7-Project-with-ASP.NET-CORE-APIS-\WebGYM\WebGYM.Interface\bin\Debug\WebGYM.ViewModels.dll
+D:\Git\Angular-Demo-Project\Angular-7-Project-with-ASP.NET-CORE-APIS-\WebGYM\WebGYM.Interface\bin\Debug\WebGYM.Models.pdb
+D:\Git\Angular-Demo-Project\Angular-7-Project-with-ASP.NET-CORE-APIS-\WebGYM\WebGYM.Interface\bin\Debug\WebGYM.ViewModels.pdb
+D:\Git\Angular-Demo-Project\Angular-7-Project-with-ASP.NET-CORE-APIS-\WebGYM\WebGYM.Interface\obj\Debug\WebGYM.Interface.csprojAssemblyReference.cache
+D:\Git\Angular-Demo-Project\Angular-7-Project-with-ASP.NET-CORE-APIS-\WebGYM\WebGYM.Interface\obj\Debug\WebGYM.Interface.csproj.CoreCompileInputs.cache
+D:\Git\Angular-Demo-Project\Angular-7-Project-with-ASP.NET-CORE-APIS-\WebGYM\WebGYM.Interface\obj\Debug\WebGYM.Interface.csproj.CopyComplete
+D:\Git\Angular-Demo-Project\Angular-7-Project-with-ASP.NET-CORE-APIS-\WebGYM\WebGYM.Interface\obj\Debug\WebGYM.Interface.dll
+D:\Git\Angular-Demo-Project\Angular-7-Project-with-ASP.NET-CORE-APIS-\WebGYM\WebGYM.Interface\obj\Debug\WebGYM.Interface.pdb
