@@ -36,6 +36,11 @@ Link to download SQL Server Express: - https://www.microsoft.com/en-in/download/
 ### Visual Studio Code<br>
 Link to download Visual studio code: - https://code.visualstudio.com/download 
 
+### TypeScript Versions<br>
+tsc --version
+<strong> Version 3.1.6 </strong>
+
+
 ### External packages which are used in .Net Core Project
 1. JWT Token for Authentication of APIS
 2. Dapper ORM
