@@ -55,3 +55,13 @@ tsc --version
 1. After downloading Use Command <strong> npm install </strong> to download packages.
 2. To Run <strong> ng serve </strong>
 
+### =========== Credential =========== <br>
+
+### =========== User =========== <br>
+Username :- user<br>
+Password :- 123456<br>
+
+### =========== Admin =========== <br>
+Username :- admin<br>
+Password :- 123456<br>
+
