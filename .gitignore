@@ -1,0 +1,13 @@
+/WebGYM/.vs
+/WebGYM/packages
+/WebGYM/WebGYM/obj
+/WebGYM/WebGYM/bin
+/WebGYM/WebGYM.Concrete/obj
+/WebGYM/WebGYM.Concrete/bin
+/WebGYM/WebGYM.Interface/bin
+/WebGYM/WebGYM.Interface/obj
+/WebGYM/WebGYM.Models/bin
+/WebGYM/WebGYM.Models/obj
+/WebGYM/WebGYM.ViewModels/obj
+/WebGYM/WebGYM.ViewModels/bin
+/gym-project/package-lock.json
