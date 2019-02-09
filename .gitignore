@@ -332,3 +332,16 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+/WebGYM/packages
+/WebGYM/WebGYM/obj
+/WebGYM/WebGYM/bin
+/WebGYM/WebGYM/*.user
+/WebGYM/WebGYM.Concrete/bin
+/WebGYM/WebGYM.Concrete/obj
+/WebGYM/WebGYM.Interface/obj
+/WebGYM/WebGYM.Interface/bin
+/WebGYM/WebGYM.Models/bin
+/WebGYM/WebGYM.Models/obj
+/WebGYM/WebGYM.ViewModels/obj
+/WebGYM/WebGYM.ViewModels/bin
+/WebGYM/WebGYM.sln.DotSettings.user
