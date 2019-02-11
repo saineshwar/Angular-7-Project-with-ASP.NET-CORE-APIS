@@ -4,6 +4,7 @@ import { catchError, tap } from 'rxjs/operators'
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { LoginModel } from '../Models/app.LoginModel';
 import { Router } from '@angular/router';
+import{environment} from '../../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -11,21 +12,21 @@ import { Router } from '@angular/router';
 
 export class LoginService {
     public token: string;
-    constructor(private _http: HttpClient, private _Route: Router) 
+    constructor(private _http: HttpClient, private _Route: Router)
     {
 
     }
-    private apiUrl = "	http://localhost:49749/api/Authenticate/";
+    private apiUrl = environment.apiEndpoint+"/api/Authenticate/";
 
     public validateLoginUser(loginmodel: LoginModel)
     {
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         return this._http.post<any>(this.apiUrl, loginmodel, { headers: headers })
-            .pipe(tap(data => 
+            .pipe(tap(data =>
             {
                 console.log(data);
-              
-                if (data.Token != null) 
+
+                if (data.Token != null)
                 {
                     if (data.Usertype == "2") {
                         // store username and jwt token in local storage to keep user logged in between page refreshes

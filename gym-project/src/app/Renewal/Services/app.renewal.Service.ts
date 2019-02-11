@@ -6,9 +6,10 @@ import { RequestMemberModel } from '../Models/app.RequestMemberModel';
 import { ResponseMemberModel } from '../Models/app.ResponseMemberModel';
 import { RequestMemberNoModel } from '../Models/app.RequestMemberNoModel';
 import { RenewalModel } from '../Models/app.RenewalModel';
-import { constantUrl } from 'src/app/Shared/constantUrl';
+// import { constantUrl } from 'src/app/Shared/constantUrl';
 import { SchemeDropdownModel } from 'src/app/SchemeMasters/Models/app.SchemeDropdownModel';
 import { ActivePlanModel } from 'src/app/PlanMaster/Models/app.ActivePlanModel';
+import{environment} from '../../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -29,7 +30,7 @@ export class RenewalService {
     }
 
     public GetMemberNo(requestModel: RequestMemberModel) {
-        var apiUrl = constantUrl.apiEndpoint + "/api/GetMemberNo/";
+        var apiUrl = environment.apiEndpoint + "/api/GetMemberNo/";
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);
         return this.http.post<ResponseMemberModel>(apiUrl, requestModel, { headers: headers })
@@ -39,7 +40,7 @@ export class RenewalService {
     }
 
     public GetRenewalDetailsbyMemberNo(requestMemberNoModel: RequestMemberNoModel) {
-        var apiUrl = constantUrl.apiEndpoint + "/api/RenewalDetails/";
+        var apiUrl = environment.apiEndpoint + "/api/RenewalDetails/";
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);
         return this.http.post<RenewalModel>(apiUrl, requestMemberNoModel, { headers: headers })
@@ -51,7 +52,7 @@ export class RenewalService {
     // Renew
     public SaveRenew(renewalModel: RenewalModel) {
 
-        var apiUrl = constantUrl.apiEndpoint + "/api/Renewal/";
+        var apiUrl = environment.apiEndpoint + "/api/Renewal/";
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);
         return this.http.post<any>(apiUrl, renewalModel, { headers: headers, observe: 'response' })
@@ -61,7 +62,7 @@ export class RenewalService {
     }
     // Get All Scheme List
     public GetAllActiveSchemeList() {
-        var apiUrl = "	http://localhost:49749/api/SchemeDropdown/";
+        var apiUrl = environment.apiEndpoint+"/api/SchemeDropdown/";
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);
         return this.http.get<SchemeDropdownModel[]>(apiUrl, { headers: headers }).pipe(tap(data => data),
@@ -71,7 +72,7 @@ export class RenewalService {
 
       // Get All Plans
       public GetAllActivePlans(schemeId) {
-        var apiUrl = "	http://localhost:49749/api/AllActivePlanMaster" + '/' + schemeId;;
+        var apiUrl = environment.apiEndpoint+"/api/AllActivePlanMaster" + '/' + schemeId;;
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);
         return this.http.get<ActivePlanModel[]>(apiUrl, { headers: headers }).pipe(tap(data => data),

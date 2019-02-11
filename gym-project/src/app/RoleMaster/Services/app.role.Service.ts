@@ -3,7 +3,8 @@ import { Observable, throwError } from 'rxjs'
 import { catchError, tap } from 'rxjs/operators'
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { RoleModel } from '../Models/app.RoleModel';
-import { environment } from 'src/app/Shared/environment';
+// import { environment } from 'src/app/Shared/environment';
+import{environment} from '../../../environments/environment';
 @Injectable({
     providedIn: 'root'
 })
@@ -14,7 +15,7 @@ export class RoleService {
     private apiUrl = environment.apiEndpoint + "/api/CreateRole/";
     token: any;
     username: any;
-    
+
     constructor(private http: HttpClient) {
         this.data = JSON.parse(localStorage.getItem('AdminUser'));
         this.token = this.data.token;

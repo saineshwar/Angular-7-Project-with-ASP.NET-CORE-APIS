@@ -4,13 +4,13 @@ import { catchError, tap } from 'rxjs/operators'
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { UserModel } from '../Models/app.UserModel';
 import { UserDropdownModel } from '../Models/app.UserDropdownModel';
-import { environment } from 'src/app/Shared/environment';
+import{environment} from '../../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 
-export class UserService 
+export class UserService
 {
 
     private data: any;
@@ -24,7 +24,7 @@ export class UserService
     }
 
     // Save User
-    public SaveUser(usermodel: UserModel) 
+    public SaveUser(usermodel: UserModel)
     {
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);

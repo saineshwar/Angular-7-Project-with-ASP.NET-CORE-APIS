@@ -5,9 +5,10 @@ import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angul
 import { MemberRegistrationModel } from '../Models/app.memberRegistrationModel';
 import { MemberRegistrationGridModel } from '../Models/app.MemberRegistrationGridModel';
 import { PaginationService } from '../../Shared/PaginationService';
-import { constantUrl } from '../../Shared/constantUrl';
+// import { constantUrl } from '../../Shared/constantUrl';
 import { SchemeDropdownModel } from '../../SchemeMasters/Models/app.SchemeDropdownModel';
 import { ActivePlanModel } from '../../PlanMaster/Models/app.ActivePlanModel';
+import{environment} from '../../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -15,7 +16,7 @@ import { ActivePlanModel } from '../../PlanMaster/Models/app.ActivePlanModel';
 
 export class MemberRegistrationService {
     private data: any;
-    private apiUrl = constantUrl.apiEndpoint + "/api/RegisterMember/";
+    private apiUrl = environment.apiEndpoint + "/api/RegisterMember/";
 
     token: any;
     username: any;
@@ -29,7 +30,7 @@ export class MemberRegistrationService {
     getAll<T>() {
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);
-        let Url = constantUrl.apiEndpoint + "/api/RegisterMember";
+        let Url = environment.apiEndpoint + "/api/RegisterMember";
         const mergedUrl = `${Url}` +
             `?page=${this.paginationService.page}&pageCount=${this.paginationService.pageCount}`;
 
@@ -39,9 +40,9 @@ export class MemberRegistrationService {
     }
 
     // Save Member
-    public SaveMember(memberModel: MemberRegistrationModel) 
+    public SaveMember(memberModel: MemberRegistrationModel)
     {
-        var SaveUrl = constantUrl.apiEndpoint +"/api/RegisterMember";
+        var SaveUrl = environment.apiEndpoint +"/api/RegisterMember";
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);
         return this.http.post<any>(SaveUrl, memberModel, { headers: headers })
@@ -53,7 +54,7 @@ export class MemberRegistrationService {
 
     // Update Member
     public UpdateMember(memberModel: MemberRegistrationModel) {
-        var updateUrl = constantUrl.apiEndpoint +"/api/RegisterMember/" + memberModel.MemberId;
+        var updateUrl = environment.apiEndpoint +"/api/RegisterMember/" + memberModel.MemberId;
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);
         return this.http.put<any>(updateUrl, memberModel, { headers: headers })
@@ -63,9 +64,9 @@ export class MemberRegistrationService {
     }
 
     // Get All Member
-    public GetAllMember() 
+    public GetAllMember()
     {
-        var getUrl = constantUrl.apiEndpoint +"/api/RegisterMember";
+        var getUrl = environment.apiEndpoint +"/api/RegisterMember";
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);
         return this.http.get<MemberRegistrationGridModel[]>(this.apiUrl, { headers: headers }).pipe(tap(data => data),
@@ -75,8 +76,8 @@ export class MemberRegistrationService {
     // Get Member by MemberID
 
     public GetMemberById(MemberId) {
-        console.log(MemberId); 
-        var editUrl = constantUrl.apiEndpoint +"/api/RegisterMember"+ '/' + MemberId;
+        console.log(MemberId);
+        var editUrl = environment.apiEndpoint +"/api/RegisterMember"+ '/' + MemberId;
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);
         return this.http.get<MemberRegistrationModel>(editUrl, { headers: headers }).pipe(tap(data => data),
@@ -85,7 +86,7 @@ export class MemberRegistrationService {
     }
 
     public DeleteMember(MemberId) {
-        var deleteUrl = constantUrl.apiEndpoint +"/api/RegisterMember"+ '/' + MemberId;
+        var deleteUrl = environment.apiEndpoint +"/api/RegisterMember"+ '/' + MemberId;
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);
         return this.http.delete<any>(deleteUrl, { headers: headers })
@@ -95,7 +96,7 @@ export class MemberRegistrationService {
     }
 
     public GetAllActiveSchemeList() {
-        var url = constantUrl.apiEndpoint + "/api/SchemeDropdown/";
+        var url = environment.apiEndpoint + "/api/SchemeDropdown/";
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);
         return this.http.get<SchemeDropdownModel[]>(url, { headers: headers }).pipe(tap(data => data),
@@ -105,7 +106,7 @@ export class MemberRegistrationService {
     }
 
     public GetAllActivePlans(schemeId) {
-        var url = constantUrl.apiEndpoint + "/api/AllActivePlanMaster" + '/' + schemeId;;
+        var url = environment.apiEndpoint + "/api/AllActivePlanMaster" + '/' + schemeId;;
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);
         return this.http.get<ActivePlanModel[]>(url, { headers: headers }).pipe(tap(data => data),
@@ -114,7 +115,7 @@ export class MemberRegistrationService {
     }
 
     public GetAmount(planID: string, schemeId: string) {
-        var url = constantUrl.apiEndpoint + "/api/GetTotalAmount/";
+        var url = environment.apiEndpoint + "/api/GetTotalAmount/";
         let AmountRequest = { "PlanId": planID, "SchemeId": schemeId };
 
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
