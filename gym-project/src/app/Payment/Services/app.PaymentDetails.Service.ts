@@ -3,7 +3,9 @@ import { Observable, throwError } from 'rxjs'
 import { catchError, tap } from 'rxjs/operators'
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { PaginationService } from '../../Shared/PaginationService';
-import { constantUrl } from '../../Shared/constantUrl';
+// import { constantUrl } from '../../Shared/constantUrl';
+import{environment} from '../../../environments/environment';
+
 
 @Injectable({
     providedIn: 'root'
@@ -12,7 +14,7 @@ import { constantUrl } from '../../Shared/constantUrl';
 export class PaymentService {
 
     private data: any;
-    private apiUrl = constantUrl.apiEndpoint + "/api/Payment/";
+    private apiUrl = environment.apiEndpoint + "/api/Payment/";
     token: any;
     username: any;
 
@@ -25,7 +27,7 @@ export class PaymentService {
     getAll<T>() {
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);
-        let Url = constantUrl.apiEndpoint + "/api/Payment";
+        let Url = environment.apiEndpoint + "/api/Payment";
         const mergedUrl = `${Url}` +
             `?page=${this.paginationService.page}&pageCount=${this.paginationService.pageCount}`;
 

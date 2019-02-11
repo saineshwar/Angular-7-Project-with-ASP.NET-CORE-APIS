@@ -3,9 +3,10 @@ import { Observable, throwError } from 'rxjs'
 import { catchError, tap } from 'rxjs/operators'
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { PaginationService } from '../../Shared/PaginationService';
-import { constantUrl } from '../../Shared/constantUrl';
+// import { constantUrl } from '../../Shared/constantUrl';
 import { GenerateRecepitRequestModel } from '../Models/app.GenerateRecepitRequestModel';
 import { GenerateRecepitViewModel } from '../Models/app.GenerateRecepitViewModel';
+import{environment} from '../../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -14,7 +15,7 @@ import { GenerateRecepitViewModel } from '../Models/app.GenerateRecepitViewModel
 export class GenerateRecepit {
 
     private data: any;
-    private apiUrl = constantUrl.apiEndpoint + "/api/Payment/";
+    private apiUrl = environment.apiEndpoint + "/api/Payment/";
     token: any;
     username: any;
 
@@ -24,10 +25,10 @@ export class GenerateRecepit {
         this.username = this.data.username
     }
 
-  
-    public GetRecepitDetails(memberModel: GenerateRecepitRequestModel) 
+
+    public GetRecepitDetails(memberModel: GenerateRecepitRequestModel)
     {
-        var SaveUrl = constantUrl.apiEndpoint +"/api/GenerateRecepit";
+        var SaveUrl = environment.apiEndpoint +"/api/GenerateRecepit";
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);
         return this.http.post<GenerateRecepitViewModel>(SaveUrl, memberModel, { headers: headers })

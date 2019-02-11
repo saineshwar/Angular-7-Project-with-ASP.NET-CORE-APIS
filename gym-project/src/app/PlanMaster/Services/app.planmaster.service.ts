@@ -5,14 +5,15 @@ import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angul
 import { PlanMasterModel } from '../Models/app.PlanMasterModel';
 import { PlanMasterViewModel } from '../Models/app.PlanMasterViewModel';
 import { ActivePlanModel } from '../Models/app.ActivePlanModel';
-import { environment } from 'src/app/Shared/environment';
+// import { environment } from 'src/app/Shared/environment';
+import{environment} from '../../../environments/environment';
 
 
 @Injectable({
     providedIn: 'root'
 })
 
-export class PlanService 
+export class PlanService
 {
     private data: any;
     private apiUrl = environment.apiEndpoint + "/api/PlanMaster/";
@@ -36,11 +37,11 @@ export class PlanService
 
     }
 
-    public GetAmount(planID: string, schemeId: string) 
+    public GetAmount(planID: string, schemeId: string)
     {
-        var apiUrl = "	http://localhost:49749/api/GetTotalAmount/";
+        var apiUrl = environment.apiEndpoint + "/api/GetTotalAmount/";
         let AmountRequest = { "PlanId": planID,"SchemeId":schemeId};
-        
+
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);
         return this.http.post<string>(apiUrl, AmountRequest, { headers: headers })
@@ -62,7 +63,7 @@ export class PlanService
 
     // Get All Plans
     public GetAllActivePlans(schemeId) {
-        var apiUrl = "	http://localhost:49749/api/AllActivePlanMaster" + '/' + schemeId;;
+        var apiUrl = environment.apiEndpoint + "/api/AllActivePlanMaster" + '/' + schemeId;;
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);
         return this.http.get<ActivePlanModel[]>(apiUrl, { headers: headers }).pipe(tap(data => data),

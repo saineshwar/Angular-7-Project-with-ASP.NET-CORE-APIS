@@ -5,7 +5,8 @@ import { SchemeMasterModel } from "../app.SchemeModel";
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { SchemeMasterViewModel } from "../Models/app.SchemeViewModel";
 import { SchemeDropdownModel } from "../Models/app.SchemeDropdownModel";
-import { environment } from "src/app/Shared/environment";
+// import { environment } from "src/app/Shared/environment";
+import{environment} from '../../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -45,7 +46,7 @@ export class SchemeService {
 
     // Get All Scheme List
     public GetAllActiveSchemeList() {
-        var apiUrl = "	http://localhost:49749/api/SchemeDropdown/";
+        var apiUrl = environment.apiEndpoint + "/api/SchemeDropdown/";
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         headers = headers.append('Authorization', 'Bearer ' + `${this.token}`);
         return this.http.get<SchemeDropdownModel[]>(apiUrl, { headers: headers }).pipe(tap(data => data),

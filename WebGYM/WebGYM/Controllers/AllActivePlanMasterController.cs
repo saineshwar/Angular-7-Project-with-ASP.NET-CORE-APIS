@@ -10,6 +10,9 @@ using WebGYM.ViewModels;
 
 namespace WebGYM.Controllers
 {
+    /// <summary>
+    /// View All Active Plan Master Related API EndPoints
+    /// </summary>
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
@@ -22,7 +25,15 @@ namespace WebGYM.Controllers
             _planMaster = planMaster;
         }
 
-        // GET: api/AllActivePlanMaster/5
+        //
+        /// <summary>
+        /// Get All Active Plan or  Get Specific Active Plan by ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <remarks>
+        ///  GET: api/AllActivePlanMaster/5
+        /// </remarks>
+        /// <returns></returns>
         [HttpGet("{id}", Name = "GetAllActivePlan")]
         public List<ActivePlanModel> Get(int? id)
         {
@@ -49,7 +60,7 @@ namespace WebGYM.Controllers
 
                 throw;
             }
-           
+
         }
 
 
