@@ -46,14 +46,21 @@ tsc --version
 2. Dapper ORM
 3. AutoMapper
 4. System.Linq.Dynamic.Core
+5. Swashbuckle.AspNetCore
 
 ### External packages which are used in Angular Project
 1. @angular/material
 2. @ngx-bootstrap/datepicker
 
-### Process to Start Angular Project
-1. After downloading Use Command <strong> npm install </strong> to download packages.
-2. To Run <strong> ng serve </strong>
+### How To Run Both Projects side by side.
+1. First of all Clone repository to your local machine which have two project.
+2. Open "WebGYM.sln" under <strong> "WebGYM"</strong> Directory and Run Web API Project (API Run with default port <strong>"49749" or "5000" </strong>, Later on you can change this) which display all avaialble endpoint for API
+3. To Run Angular Project you have to <strong>Open Command Prompt</strong> with run as administrator
+4. cd <strong> "{FullDirectorypath}\Angular-7-Project-with-ASP.NET-CORE-APIS\gym-project" </strong>
+5. Install npm dependency by running <strong>"npm install"</strong> command
+6. In case if you have changed WebAPI Project running port then you need to change ApiEndPoint url in <strong> "environment\environment.ts"</strong> other wise skip this step.
+7. Final step run command <strong> ng serve or npm start </strong> which run on default port <strong>"4200"</strong>
+## Note : Run Visual studio, Visual Studio Code or Command Prompt as Administartor in windows system to avoide some issue.
 
 ### Credential <br>
 
