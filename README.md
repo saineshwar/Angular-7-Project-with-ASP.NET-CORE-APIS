@@ -60,7 +60,7 @@ tsc --version
 5. Install npm dependency by running <strong>"npm install"</strong> command
 6. In case if you have changed WebAPI Project running port then you need to change ApiEndPoint url in <strong> "environment\environment.ts"</strong> other wise skip this step.
 7. Final step run command <strong> ng serve or npm start </strong> which run on default port <strong>"4200"</strong>
-## Note : Run Visual studio, Visual Studio Code or Command Prompt as Administartor in windows system to avoide some issue.
+## Note : Run Visual studio, Visual Studio Code or Command Prompt as Administrator in windows system to avoide some issue.
 
 ### Credential <br>
 
