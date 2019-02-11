@@ -1,9 +1,6 @@
 # Angular 7 Project with ASP.NET CORE APIS (GYM PROJECT)
 
-
 <img src="https://github.com/saineshwar/Angular-7-Project-with-ASP.NET-CORE-APIS-/blob/master/Images/banner.png?raw=true" alt="Banner" title="Banner" style="max-width:100%;">
-
-Original Article Link : https://www.c-sharpcorner.com/article/angular-7-project-with-asp-net-core-apis-gym-project/
 
 ## Getting Started
 
