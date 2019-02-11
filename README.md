@@ -72,3 +72,8 @@ Password :- 123456<br>
 Username :- admin<br>
 Password :- 123456<br>
 
+## TODO
+[x] Initial Getting started project for Angular 7 and Web API Project with Authentication
+[ ] User Friendly Error Handling for API and Angular App
+[ ] Listout Most used and useful feature and functionality used in angular or API Project and explain how to use it for beginner.
+[ ] List out Best Practice Points which should be extended in current project.
