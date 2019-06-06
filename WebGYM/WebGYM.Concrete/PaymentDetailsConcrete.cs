@@ -98,7 +98,6 @@ namespace WebGYM.Concrete
                     sqlTransaction.Rollback();
                     return false;
                 }
-                return false;
             }
         }
 
