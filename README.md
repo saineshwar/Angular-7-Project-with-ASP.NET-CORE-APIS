@@ -1,5 +1,5 @@
-## Donate 
-[Donate to Author](https://imjo.in/HKQKpv)
+## Info
+For free database scripts Email at saihacksoft@gmail.com and please like Repo else you can pay :- $ 2.00 here  https://payhip.com/b/vJ1L for getting database scripts.
 
 # Angular 7 Project with ASP.NET CORE APIS (GYM PROJECT)
 
