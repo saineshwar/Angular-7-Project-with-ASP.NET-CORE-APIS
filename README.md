@@ -1,5 +1,6 @@
 ## Info
-For free database scripts Email at saihacksoft@gmail.com and please like Repo else you can pay :- $ 3.00 here  https://payhip.com/b/vJ1L for getting database scripts.
+Pay :- $ 3.00 here  https://payhip.com/b/vJ1L for getting database scripts.
+Pay :- ₹ 100 For India Users https://imjo.in/QDdBze for getting database scripts.
 
 # Angular 7 Project with ASP.NET CORE APIS (GYM PROJECT)
 
@@ -87,3 +88,6 @@ Password :- 123456<br>
 ## If you are new to Angular Must Watch Video How to Learn Angular in 1 hour
 
 [![Learn Angular](https://github.com/saineshwar/ASPNET-Core-Angular-7-Project/blob/master/Images/hqdefault.jpg)](https://www.youtube.com/watch?v=FV2MXOygDTM "Learn Angular")
+
+## Mail
+For free database scripts Email at saihacksoft@gmail.com only for students.
